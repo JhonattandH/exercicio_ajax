@@ -14,11 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(json) {
             avatar.src = json.avatar_url;
             name.innerText = json.name;
-            username.innerText = json.login;
+            username.innerText = json.login;    
             repos.innerText = json.public_repos;
             followers.innerText = json.followers;
             following.innerText = json.following;
             link.href = json.html_url;
-
         })
+        .catch(function(error) {
+            console.log("Erro ao carregar os dados do usuário:", error);
+        });
 });
